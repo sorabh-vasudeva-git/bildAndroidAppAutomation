@@ -1,0 +1,15 @@
+[38;5;112m[Appium][0m Welcome to Appium v3.0.2
+[38;5;112m[Appium][0m The autodetected Appium home path: /Users/sorabhvasudeva/.appium
+[38;5;112m[Appium][0m Attempting to load driver uiautomator2...
+[38;5;112m[Appium][0m Attempting to load driver xcuitest...
+[38;5;112m[Appium][0m Requiring driver at /Users/sorabhvasudeva/.appium/node_modules/appium-uiautomator2-driver/build/index.js
+[38;5;112m[Appium][0m AndroidUiautomator2Driver has been successfully loaded in 1.371s
+[38;5;112m[Appium][0m Requiring driver at /Users/sorabhvasudeva/.appium/node_modules/appium-xcuitest-driver/build/index.js
+[38;5;112m[Appium][0m XCUITestDriver has been successfully loaded in 3.006s
+[38;5;86m[HTTP][0m Could not start REST http interface listener. The requested port may already be in use. Please make sure there is no other instance of this server running already.
+[38;5;112m[Appium][0m Could not configure Appium server. It's possible that a driver or plugin tried to update the server and failed. Original error: listen EADDRINUSE: address already in use 0.0.0.0:4723
+[38;5;112m[Appium][0m Error: listen EADDRINUSE: address already in use 0.0.0.0:4723
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)
