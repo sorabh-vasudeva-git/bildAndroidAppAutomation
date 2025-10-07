@@ -12,7 +12,7 @@ public class LoginTests extends BaseTest{
 
     @Test(priority = 1, description = "To login with a registered user")
     public void loginWithRegisteredUser() throws Exception{
-        reportUtils.createATestcase("To login with a registered user");
+
         AndroidDriver driver = this.driver;
         ElementActions androidActions = new ElementActions(driver);
         LoginScreen login = new LoginScreen(driver, androidActions);
@@ -32,7 +32,7 @@ public class LoginTests extends BaseTest{
     }
     @Test (priority =2,description = "To create a new user account")
     public void createANewUserAccount() throws Exception{
-        reportUtils.createATestcase("To create a new user account");
+
         AndroidDriver driver = this.driver;
         ElementActions androidActions = new ElementActions(driver);
         LoginScreen login = new LoginScreen(driver, androidActions);
@@ -52,7 +52,7 @@ public class LoginTests extends BaseTest{
 
     @Test(priority =3,description = "To login with a not registered user")
     public void loginWithNotRegisteredUser() throws Exception {
-        reportUtils.createATestcase("To login with a not registered user");
+
         AndroidDriver driver = this.driver;
         ElementActions androidActions = new ElementActions(driver);
         LoginScreen login = new LoginScreen(driver, androidActions);
