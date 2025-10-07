@@ -44,10 +44,9 @@ public class HomeScreen {
         } catch (Exception ignored) {
         }
     }
-
-    public void openLogin() {
+    public void onboardingNeinDanke() {
         try {
-            androidActions.clickByText("ANMELDEN");
+            androidActions.clickByText("NEIN, DANKE");
         } catch (Exception ignored) {
         }
     }

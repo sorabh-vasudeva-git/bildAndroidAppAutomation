@@ -16,11 +16,6 @@ public class CommonKeys {
         this.driver = driver;
     }
 
-    /** Press the Home key. */
-    public void pressHomeKey() {
-        driver.pressKey(new KeyEvent(AndroidKey.HOME));
-    }
-
     /** Press the Back key. */
     public void pressBackKey() {
         driver.pressKey(new KeyEvent(AndroidKey.BACK));

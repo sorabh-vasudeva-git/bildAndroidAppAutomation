@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="MySuite" verbose="1" preserve-order="true">
+    <test name="BildAutomationTests">
+        <classes>
+            <!-- classes will run in the order declared here -->
+            <class name="testcases.AppLaunchTests"/>
+            <class name="testcases.LoginTests"/>
+        </classes>
+    </test>
+</suite>

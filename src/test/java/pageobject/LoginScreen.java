@@ -14,18 +14,44 @@ public class LoginScreen {
         this.driver = driver;
         this.androidActions = androidActions;
     }
+    public void clickButtonByText(String buttonText) {
+        androidActions.clickByText(buttonText);
+    }
 
-    public void enterEmail(String email) {
-        // resource-id "identifier"
+    public void enterRegisteredUserEmail(String email) {
         androidActions.setTextByResourceId("identifier", email);
+    }
+
+    public void enterNewUserEmail(String email){
+        androidActions.setTextByResourceId("traits.email", email);
     }
 
     public void enterPassword(String password) {
         androidActions.setTextByResourceId("password", password);
     }
 
-    public void submitLogin() {
-        // button text "JETZT ANMELDEN"
-        androidActions.clickByText("JETZT ANMELDEN");
+    public void submitLoginJETZTANMELDEN() {
+        clickButtonByText("JETZT ANMELDEN");
     }
+    public void clickLogoutABMELDEN(){
+        clickButtonByText("ABMELDEN");
+    }
+
+    public void clickMoreMehrButton() {
+        clickButtonByText("Mehr");
+    }
+    public void clickMyaccountMeinKonto() {
+        clickButtonByText("Mein Konto");
+    }
+    public void clickLoginButton(){
+        clickButtonByText("LOGIN");
+    }
+    public void clickCreateAccountKONTOANLEGEN(){
+        clickButtonByText("KONTO ANLEGEN");
+    }
+
+    public void clickCheckboxAccountCreation(){
+        androidActions.clickByResourceId("traits.optIns.Medienangebote_AS_2020");
+    }
+
 }

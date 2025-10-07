@@ -16,22 +16,8 @@ public class AccountScreen {
         this.androidActions = androidActions;
     }
 
-    public void openMoreMenu() {
-        androidActions.clickByPartialText("Mehr");
+    public void verifyUserLoggedIn(String expectedEmail) {
+        androidActions.assertViewByText(expectedEmail);
     }
 
-    public void openMyAccount() {
-        androidActions.clickByText("Mein Konto");
-    }
-
-//    public void verifyUserLoggedIn(String expectedEmail) {
-//        Assert.assertTrue(androidActions.clickByPartialText("Eingeloggt als"),
-//                "'Eingeloggt als' label not visible — login may have failed.");
-//        Assert.assertTrue(androidActions.clickByPartialText(expectedEmail),
-//                "Expected email not visible after login: " + expectedEmail);
-//    }
-
-    public boolean isEmailVisible(String email) {
-        return androidActions.isElementWithTextPresent(email);
-    }
 }

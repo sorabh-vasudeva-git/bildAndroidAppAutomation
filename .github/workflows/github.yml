@@ -48,11 +48,11 @@ jobs:
       # Make install script executable
       - name: Make install script executable
         run: |
-          chmod +x ./scripts/install_split_apk.sh
+          chmod +x ./scripts/install-split-apks.sh
       # Install base + split APKs using repo script
       - name: Install base + split APKs using repo script
         run: |
-          ./scripts/install_split_apk.sh ./mobile_test_challenge/apps
+          ./scripts/install-split-apks.sh ./mobile_test_challenge/apps
       # Install project dependencies
       - name: Install project dependencies
         run: mvn install -DskipTests=true

@@ -6,11 +6,13 @@ import io.appium.java_client.android.AndroidDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import commonLibs.implementation.CommonKeys;
+import org.testng.annotations.AfterTest;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 import java.io.File;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -228,27 +230,37 @@ public class BaseTest {
             System.err.println("postCleanup: reportUtils is null — nothing to flush.");
         }
     }
-
-    @Test
-    public void appIsRunning() {
-        try {
-            String pkg = driver.getCurrentPackage();
-            // currentActivity returns a String like ".MainActivity" or the full component name
-            String activity = driver.currentActivity();
-            System.out.println("Current package: " + pkg);
-            System.out.println("Current activity: " + activity);
-            if (!"com.netbiscuits.bild.android".equals(pkg)) {
-                throw new AssertionError("Unexpected package: " + pkg);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
-        }
-    }
-
     /**
      * Helper to check whether driver is active (session exists).
      */
+
+    @AfterTest(alwaysRun = true)
+    public void installAppAfterTest() {
+        String script = "./scripts/install-split-apks.sh";
+        ProcessBuilder pb = new ProcessBuilder("/bin/bash", script);
+        pb.redirectErrorStream(true); // merge stdout & stderr
+
+        try {
+            Process p = pb.start();
+
+            // print script output (minimal)
+            try (BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+                String line;
+                while ((line = r.readLine()) != null) {
+                    System.out.println("[INSTALL] " + line);
+                }
+            }
+
+            int exit = p.waitFor();
+            if (exit != 0) {
+                throw new RuntimeException("Installer script failed with exit code: " + exit);
+            }
+            System.out.println("Installer script completed successfully.");
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to run installer script: " + e.getMessage(), e);
+        }
+    }
+
     protected boolean isDriverActive() {
         if (driver == null) return false;
         try {
